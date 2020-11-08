@@ -21,11 +21,15 @@ All modules end with the **.ko** extension, and they are normally reside inside 
 
 `lsmod` – lists modules that are already loaded
 
-<a href="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/lsmod.png">![lsmod](https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/lsmod.png)</a>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/lsmod.png" />
+</p>
 
 `insmod` – inserts a new module into the kernel
 
-<a href="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/insmod.png">![insmod](https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/insmod.png)</a>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/insmod.png" />
+</p>
 
 Above example, we inserted a built-in kernel module which is speedstep-lib. As you can see, this module resides in `/lib/modules/$(uname -r)/kernel/...` directory as we mentioned earlier. Here `$(uname -r)` is executed by shell and translated to our kernel version (in my case: `5.8.0-26-generic`).
 
@@ -33,7 +37,9 @@ Now in order to see the first 10 modules that already loaded. We typed: `lsmod |
 
 `rmmod` – removes a module from the kernel
 
-<a href="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/rmmod.png">![rmmod](https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/rmmod.png)</a>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/rmmod.png" />
+</p>
 
 <h3 id="first-module" align="center">First kernel module - helloworld</h3>
 
@@ -86,7 +92,9 @@ Finally, `clean` performs actions that clean up after the compiler removing obje
 
 Now, we are ready to compile and insert our module to kernel:
 
-<a href="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/manipulating_kernel_model.png">![manipulating_kernel_model](https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/manipulating_kernel_model.png)</a>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/manipulating_kernel_model.png" />
+</p>
 
 So, as you can see we have two files `helloworld.c` and `Makefile` in the current directory. By command `make`, we will compile `helloworld`. After compilation, we have some new files with **helloworld.ko** which is Linux kernel module (with extension `.ko`). Now we are inserting the module into the kernel. When a module is inserted, the `module_init` macro will be invoked, which will call the function `welcomeinha_init` (which writes "Hello, world" into the log file):
 
