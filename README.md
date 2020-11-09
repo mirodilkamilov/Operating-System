@@ -71,7 +71,7 @@ This module defines two functions, one to be invoked when the module is loaded i
 the C Programming Language exclusively for the Linux
 Kernel. It acts as a debugging tool for kernel programmers who need this function for logging messages from the kernel. **The string that we provided then printed to the kernel log.**
 
-The last file that we need to add in order to compile our first kernel module is <a href="https://github.com/mirodil1999/Operating-System/blob/main/kernel_modules/hello/Makefile" target="_blank">Makefile</a>:
+The last file that we need to add in order to compile our first kernel module is <a href="https://github.com/mirodil1999/Operating-System/blob/main/kernel_modules/hello/Makefile" target="_blank">Makefile</a>. *Please, note that Makefile first letter is capital "M" and next lines after `all:` and `clean:` targets are indented (not fulfilling these requirements causes errors):* 
 
 ```Makefile
 obj-m := helloworld.o
