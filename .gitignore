@@ -1,9 +1,9 @@
 file_management/file
 
-kernel_modules/hello/.*
-kernel_modules/hello/*.mod
-kernel_modules/hello/*.o
-kernel_modules/hello/*.ko
-kernel_modules/hello/*.mod.c
-kernel_modules/hello/Module.symvers
-kernel_modules/hello/modules.order
+kernel_modules/**/.*
+kernel_modules/**/*.mod
+kernel_modules/**/*.o
+kernel_modules/**/*.ko
+kernel_modules/**/*.mod.c
+kernel_modules/**/Module.symvers
+kernel_modules/**/modules.order
