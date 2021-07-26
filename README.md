@@ -22,13 +22,13 @@ All modules end with the **.ko** extension, and they are normally reside inside 
 `lsmod` – lists modules that are already loaded
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/lsmod.png" />
+  <img src="kernel_modules/hello/lsmod.png" />
 </p>
 
 `insmod` – inserts a new module into the kernel
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/insmod.png" />
+  <img src="kernel_modules/hello/insmod.png" />
 </p>
 
 Above example, we inserted a built-in kernel module which is speedstep-lib. As you can see, this module resides in `/lib/modules/$(uname -r)/kernel/...` directory as we mentioned earlier. Here `$(uname -r)` is executed by shell and translated to our kernel version (in my case: `5.8.0-26-generic`).
@@ -38,12 +38,12 @@ Now in order to see the first 10 modules that already loaded. We typed: `lsmod |
 `rmmod` – removes a module from the kernel
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/rmmod.png" />
+  <img src="kernel_modules/hello/rmmod.png" />
 </p>
 
 <h3 id="first-module" align="center">First kernel module - helloworld</h3>
 
-Let's first create simple <a href="https://github.com/mirodil1999/Operating-System/blob/main/kernel_modules/hello/helloworld.c" target="_blank">helloworld.c</a> module in C programming language:
+Let's first create simple <a href="kernel_modules/hello/helloworld.c" target="_blank">helloworld.c</a> module in C programming language:
 
 ```C
 #include <linux/init.h>
@@ -71,7 +71,7 @@ This module defines two functions, one to be invoked when the module is loaded i
 the C Programming Language exclusively for the Linux
 Kernel. It acts as a debugging tool for kernel programmers who need this function for logging messages from the kernel. **The string that we provided then printed to the kernel log.**
 
-The last file that we need to add in order to compile our first kernel module is <a href="https://github.com/mirodil1999/Operating-System/blob/main/kernel_modules/hello/Makefile" target="_blank">Makefile</a>. *Please, note that Makefile first letter is capital "M" and next lines after `all:` and `clean:` targets are indented (not fulfilling these requirements causes errors):* 
+The last file that we need to add in order to compile our first kernel module is <a href="kernel_modules/hello/Makefile" target="_blank">Makefile</a>. *Please, note that Makefile first letter is capital "M" and next lines after `all:` and `clean:` targets are indented (not fulfilling these requirements causes errors):* 
 
 ```Makefile
 obj-m := helloworld.o
@@ -93,7 +93,7 @@ Finally, `clean` performs actions that clean up after the compiler removing obje
 Now, we are ready to compile and insert our module to kernel:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mirodil1999/Operating-System/main/kernel_modules/hello/manipulating_kernel_model.png" />
+  <img src="kernel_modules/hello/manipulating_kernel_model.png" />
 </p>
 
 So, as you can see we have two files `helloworld.c` and `Makefile` in the current directory. By command `make`, we will compile `helloworld`. After compilation, we have some new files with **helloworld.ko** which is Linux kernel module (with extension `.ko`). Now we are inserting the module into the kernel. When a module is inserted, the `module_init` macro will be invoked, which will call the function `welcomeinha_init` (which writes "Hello, world" into the log file):
